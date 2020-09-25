@@ -1,7 +1,8 @@
 FROM ubuntu:latest
 
 RUN apt-get -y update && \
-    apt-get -y install \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install \
+      ethtool \
       net-tools \
       iputils-ping \
       traceroute \
@@ -13,4 +14,9 @@ RUN apt-get -y update && \
       netcat \
       curl \
       wget \
+      dropbear \
+      vim \
+      jq \
+      unzip \
+      iperf \
  && useradd -c "Nonprivileged test user" -m -u 1000 -U testuser
